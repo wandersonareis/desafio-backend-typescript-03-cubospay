@@ -111,7 +111,10 @@ export class TransactionsController {
     description: 'Bad Request',
     type: PaymentMethodException,
   })
-  @ApiUnauthorizedResponse({ description: 'api_key missing', type: UnauthorizedException})
+  @ApiUnauthorizedResponse({
+    description: 'api_key missing',
+    type: UnauthorizedException,
+  })
   async createTransaction(
     @Body(PaymentValidationPipe) createTransactionDto: CreateTransactionDto,
   ): Promise<Transactions> {
@@ -141,7 +144,10 @@ export class TransactionsController {
     },
   })
   @ApiNotFoundResponse({ type: TransactionNotFoundException })
-  @ApiUnauthorizedResponse({ description: 'api_key missing', type: UnauthorizedException})
+  @ApiUnauthorizedResponse({
+    description: 'api_key missing',
+    type: UnauthorizedException,
+  })
   async cancelTransaction(
     @Param('id', IdToTransactionPipe) transaction: Transactions,
     @AccountFromApi() account: Account,
@@ -170,7 +176,10 @@ export class TransactionsController {
   @ApiNotFoundResponse({
     type: TransactionNotFoundException,
   })
-  @ApiUnauthorizedResponse({ description: 'api_key missing', type: UnauthorizedException})
+  @ApiUnauthorizedResponse({
+    description: 'api_key missing',
+    type: UnauthorizedException,
+  })
   async findTransaction(
     @Param('id', IdToTransactionPipe) transaction: Transactions,
   ): Promise<Transactions> {
@@ -218,7 +227,10 @@ export class TransactionsController {
       },
     },
   })
-  @ApiUnauthorizedResponse({ description: 'api_key missing', type: UnauthorizedException})
+  @ApiUnauthorizedResponse({
+    description: 'api_key missing',
+    type: UnauthorizedException,
+  })
   async payTransaction(
     @Param('id', IdToTransactionPipe) transaction: Transactions,
     @AccountFromApi() account: Account,

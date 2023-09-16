@@ -39,7 +39,10 @@ export class TransfersController {
     description: 'Bad Request',
     type: InsufficientFundsException,
   })
-  @ApiUnauthorizedResponse({ description: 'api_key missing', type: UnauthorizedException})
+  @ApiUnauthorizedResponse({
+    description: 'api_key missing',
+    type: UnauthorizedException,
+  })
   async transferTransaction(
     @Body(TransferValidationPipe) transferData: TransferData,
     @AccountFromApi() account: Account,
@@ -60,7 +63,10 @@ export class TransfersController {
     description: 'Success',
     schema: { example: { balance: 100 } },
   })
-  @ApiUnauthorizedResponse({ description: 'api_key missing', type: UnauthorizedException})
+  @ApiUnauthorizedResponse({
+    description: 'api_key missing',
+    type: UnauthorizedException,
+  })
   getBalance(@AccountFromApi() account: Account): IBalanceResponse {
     const { balance } = account;
     return { balance };

@@ -42,7 +42,10 @@ export class WithdrawalsController {
     description: 'Bad Request',
     type: InsufficientFundsException,
   })
-  @ApiUnauthorizedResponse({ description: 'api_key missing', type: UnauthorizedException})
+  @ApiUnauthorizedResponse({
+    description: 'api_key missing',
+    type: UnauthorizedException,
+  })
   async createWithdrawal(
     @Body() withdrawalDto: WithdrawalDto,
     @AccountFromApi() account: Account,
